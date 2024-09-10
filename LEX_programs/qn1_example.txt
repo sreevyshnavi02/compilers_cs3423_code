@@ -1,0 +1,9 @@
+// This is a C++ style comment
+Normal text /*
+This
+is 
+a
+C comment
+*/ This too can be printed
+Another line of normal text
+//another c++ comment

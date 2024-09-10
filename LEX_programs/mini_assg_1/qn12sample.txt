@@ -1,0 +1,6 @@
+/* Start of the comment
+   Still inside the comment */
+int main() {
+   // This is a single-line comment
+   printf("Hello, World!"); /* Another comment */
+}
