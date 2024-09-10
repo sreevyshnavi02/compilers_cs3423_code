@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 5
-#define YY_END_OF_BUFFER 6
+#define YY_NUM_RULES 6
+#define YY_END_OF_BUFFER 7
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -362,7 +362,7 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[10] =
     {   0,
-        0,    0,    6,    4,    5,    3,    1,    2,    0
+        0,    0,    7,    5,    4,    3,    1,    2,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -722,12 +722,12 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 7 "pp.l"
-{return LEFT;}
+{printf("LEFT "); return LEFT;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 8 "pp.l"
-{return RIGHT;}
+{printf("RIGHT "); return RIGHT;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
@@ -735,16 +735,22 @@ YY_RULE_SETUP
 {}
 	YY_BREAK
 case 4:
+/* rule 4 can match eol */
 YY_RULE_SETUP
 #line 10 "pp.l"
-{printf("unexpected character");}
+{return EOL; exit(0);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 12 "pp.l"
+#line 11 "pp.l"
+{printf("unexpected character");}
+	YY_BREAK
+case 6:
+YY_RULE_SETUP
+#line 13 "pp.l"
 ECHO;
 	YY_BREAK
-#line 748 "lex.yy.c"
+#line 754 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1749,8 +1755,8 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 12 "pp.l"
+#line 13 "pp.l"
 
 
-yywrap() {}
+yywrap(){}
 

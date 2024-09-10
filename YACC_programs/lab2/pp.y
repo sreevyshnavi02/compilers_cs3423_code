@@ -1,23 +1,30 @@
 %{
 #include<stdlib.h>
-#include<stdio.h>    
+#include<stdio.h>  
+int yyerror(char * s);
+int yylex();
 %}
 
 %token LEFT
 %token RIGHT
+%token EOL
 
 %%
 
-pair: LEFT pair RIGHT pair {printf("Valid!");}
-| 
+input: pair EOL {printf("\nValid!\n"); exit(0);}
+;
+pair: LEFT pair RIGHT pair {;}
+    |
     ;
 %%
 
 
-int yywrap(){return 1;}
 
-yyerror( char* s){
-    printf("%s\n",s);
+int yyerror( char* s){
+    extern char *yytext;  // yytext is from the lexer
+    printf("\nError: %s at symbol '%s'\n", s, yytext);
+    // printf("%s\n",s);
+    return 0;
 }
 
 int main(){
